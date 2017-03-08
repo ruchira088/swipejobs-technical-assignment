@@ -1,0 +1,18 @@
+{
+  "name": "swipejobs-technical-assignment",
+  "version": "0.0.1",
+  "description": "Swipejobs - Technical Assignment",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --debug=5858 ."
+  },
+  "author": "Ruchira Jayasekara <ruchira088@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
