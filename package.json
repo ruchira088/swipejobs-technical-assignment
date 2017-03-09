@@ -4,7 +4,7 @@
   "description": "Swipejobs - Technical Assignment",
   "main": "app/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/mathTest.js",
     "dev": "nodemon --debug=5858 ."
   },
   "author": "Ruchira Jayasekara <ruchira088@gmail.com>",
@@ -13,6 +13,8 @@
     "express": "^4.15.2"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
   }
 }

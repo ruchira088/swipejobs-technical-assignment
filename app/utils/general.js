@@ -6,4 +6,3 @@ const createResponse = (request, links = {}, data) => ({
 module.exports = {
     createResponse
 }
-

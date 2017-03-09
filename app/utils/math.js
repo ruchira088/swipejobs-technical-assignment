@@ -10,7 +10,6 @@ const convertToRadianCoordinates = ({latitude, longitude}) =>
         longitude: convertDegreesToRadians(longitude)
     })
 
-
 /**
  * https://en.wikipedia.org/wiki/Haversine_formula
  *
