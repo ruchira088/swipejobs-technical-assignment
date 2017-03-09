@@ -20,6 +20,9 @@ jobRouter.get("/:jobId", (request, response) => {
         .then(job => {
             response.json(createResponse(request, undefined, job))
         })
+        .catch(({status, message}) => {
+            response.status(status).json(message)
+        })
 })
 
 module.exports = {

@@ -24,6 +24,9 @@ workerRouter.get("/:workerId", (request, response) => {
 
             response.json(createResponse(request, links, worker))
         })
+        .catch(({status, message}) => {
+            response.status(status).json(message)
+        })
 })
 
 workerRouter.get("/:workerId/jobs", (request, response) => {
@@ -43,6 +46,9 @@ workerRouter.get("/:workerId/jobs", (request, response) => {
             }))
 
             response.json(createResponse(request, links, data))
+        })
+        .catch(({status, message}) => {
+            response.status(status).json(message)
         })
 })
 
