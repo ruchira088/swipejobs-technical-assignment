@@ -11,11 +11,11 @@ const convertToRadianCoordinates = ({latitude, longitude}) =>
     })
 
 /**
- * https://en.wikipedia.org/wiki/Haversine_formula
+ * Returns the distance between 2 coordinates in kms. The calculation is performed using the
+ * Haversine formula.
  *
- * @param coordinates_1
- * @param coordinates_2
- * @return {number}
+ * For more details, visit https://en.wikipedia.org/wiki/Haversine_formula
+ *
  */
 const getDistanceBetweenTwoCoordinates = (coordinates_1, coordinates_2) => {
     const {sin, cos, asin, sqrt} = Math

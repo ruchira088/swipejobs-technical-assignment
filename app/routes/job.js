@@ -1,5 +1,5 @@
 const {Router} = require("express")
-const {getJob} = require("../jobFinder")
+const {getJob} = require("../swipeJobs/query")
 const {createResponse} = require("../utils/general")
 
 const PATH = "/job"

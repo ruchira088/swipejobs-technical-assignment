@@ -4,7 +4,7 @@
   "description": "Swipejobs - Technical Assignment",
   "main": "app/index.js",
   "scripts": {
-    "test": "mocha test/mathTest.js",
+    "test": "mocha test/suite.js",
     "dev": "nodemon --debug=5858 ."
   },
   "author": "Ruchira Jayasekara <ruchira088@gmail.com>",

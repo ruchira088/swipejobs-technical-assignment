@@ -1,5 +1,6 @@
 {
   "httpPort": 8000,
+  "maxNumberOfJobs": 3,
   "apiServices": {
     "swipeJobs": {
       "baseUrl": "http://test.swipejobs.com/api",

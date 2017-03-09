@@ -3,6 +3,9 @@ const configJson = require("../../config.json")
 
 const {baseUrl, endPoints} = configJson.apiServices.swipeJobs
 
+/**
+ * Takes a baseUrl, then takes a path and returns a promise that wraps a GET request
+ */
 const getRequest = baseUrl => path => (
     new Promise((resolve, reject) => {
         const request = http.request(`${baseUrl}/${path}`, response => {
@@ -27,8 +30,14 @@ const getRequest = baseUrl => path => (
 
 const swipeJobGetRequest = getRequest(baseUrl)
 
+/**
+ * Returns a promise that contains all the workers from the SwipeJobs API
+ */
 const getSwipeWorkers = () => swipeJobGetRequest(endPoints.workers)
 
+/**
+ * Returns a promise that contains all the jobs from the SwipeJobs API
+ */
 const getSwipeJobs = () => swipeJobGetRequest(endPoints.jobs)
 
 module.exports = {

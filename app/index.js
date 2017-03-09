@@ -9,6 +9,7 @@ const {name, version, description} = require("../package.json")
 
 const app = express()
 
+// route middleware
 app.use(workerRouter.PATH, workerRouter.router)
 app.use(jobRouter.PATH, jobRouter.router)
 
