@@ -1,16 +1,16 @@
 const {Router} = require("express")
 const {getWorker, jobFinder} = require("../jobFinder")
+const {createResponse} = require("../utils/general")
 
 const PATH = "/worker"
 const workerRouter = Router()
 
 workerRouter.get("/", (request, response) => {
-    response.json({
-        links: {
-            self: request.originalUrl,
-            fetchWorker: `${PATH}/{workerId}`
-        }
-    })
+    const links = {
+        fetchWorker: `${PATH}/{workerId}`
+    }
+
+    response.json(createResponse(request, links))
 })
 
 workerRouter.get("/:workerId", (request, response) => {
@@ -18,14 +18,11 @@ workerRouter.get("/:workerId", (request, response) => {
 
     getWorker(workerId)
         .then(worker => {
+            const links = {
+                jobs: `${request.originalUrl}/jobs`
+            }
 
-            response.json({
-                links: {
-                    self: request.originalUrl,
-                    jobs: `${request.originalUrl}/jobs`
-                },
-                data: worker
-             })
+            response.json(createResponse(request, links, worker))
         })
 })
 
@@ -34,22 +31,21 @@ workerRouter.get("/:workerId/jobs", (request, response) => {
 
     jobFinder(workerId)
         .then(jobs => {
+            const links = {
+                worker: `${PATH}/${workerId}`
+            }
 
-            response.json({
+            const data = jobs.map(({jobId, company, jobTitle, about}) => ({
+                jobId,
+                company,
+                jobTitle,
+                about,
                 links: {
-                    self: request.originalUrl,
-                    worker: `${PATH}/${workerId}`
-                },
-                data: jobs.map(({jobId, company, jobTitle, about}) => ({
-                    jobId,
-                    company,
-                    jobTitle,
-                    about,
-                    links: {
-                        self: `/job/${jobId}`
-                    }
-                }))
-            })
+                    self: `/job/${jobId}`
+                }
+            }))
+
+            response.json(createResponse(request, links, data))
         })
 })
 
