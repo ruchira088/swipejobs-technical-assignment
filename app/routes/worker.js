@@ -36,10 +36,7 @@ workerRouter.get("/:workerId/jobs", (request, response) => {
             }
 
             const data = jobs.map(({jobId, company, jobTitle, about}) => ({
-                jobId,
-                company,
-                jobTitle,
-                about,
+                jobId, company, jobTitle, about,
                 links: {
                     self: `/job/${jobId}`
                 }

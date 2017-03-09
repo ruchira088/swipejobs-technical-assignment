@@ -4,6 +4,7 @@
   "description": "Swipejobs - Technical Assignment",
   "main": "app/index.js",
   "scripts": {
+    "start": "node .",
     "test": "mocha test/suite.js",
     "dev": "nodemon --debug=5858 ."
   },
